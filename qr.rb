@@ -1,10 +1,14 @@
 require "rqrcode"
 
-qrcode = RQRCode::QRCode.new("WIFI:T:WPA;S:loading...;P:wasthatyourstomach;;")
-png = qrcode.as_png({ :size => 500 })
+qrcode = RQRCode::QRCode.new("wikipedia.com")
 
-def hello
-  puts "hello world"
+png = qrcode.as_png({ :size => 500})
+
+IO.binwrite("sometext.png", png.to_s)
+
+
+def greeting
+  puts "Hello World"
 end
 
-hello
+greeting
